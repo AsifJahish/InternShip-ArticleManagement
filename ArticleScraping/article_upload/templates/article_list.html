@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-end mb-3">
+    <a href="{% url 'upload_article' %}" class="btn btn-primary">+ Upload Article</a>
+</div>
+
+<div class="card shadow p-3">
+    <h4 class="mb-3">Uploaded Articles</h4>
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Article Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ article.name }}</td>
+                    <td>
+                        <a href="{{ article.file.url }}" class="btn btn-success btn-sm" target="_blank">📄 View PDF</a>
+                        <a href="{% url 'extract_data' %}" class="btn btn-info btn-sm">🔍 Extract Data</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3" class="text-center text-muted">No articles uploaded yet.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
