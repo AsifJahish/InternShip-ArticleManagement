@@ -3,6 +3,9 @@ from django.db import models
 # Create your models here.
 from django.db import models
 
+# Create your models here.
+from django.db import models
+
 class ExtractedData(models.Model):
     article = models.ForeignKey('article_upload.Article', on_delete=models.CASCADE)
     year = models.IntegerField()

@@ -1,4 +1,7 @@
 from django.shortcuts import render
+
+# Create your views here.
+from django.shortcuts import render
 from .models import ExtractedData
 from article_upload.models import Article
 import PyPDF2
