@@ -22,8 +22,8 @@
                     <td>{{ article.name }}</td>
                     <td>
                         <a href="{{ article.file.url }}" class="btn btn-success btn-sm" target="_blank">📄 View PDF</a>
-                        <a href="{% url 'extract_data' %}" class="btn btn-info btn-sm">🔍 Extract Data</a>
-                    </td>
+                        <a href="{% url 'process_articles' article.id %}" class="btn btn-info btn-sm">🔍 Extract Data</a>
+                        <a href="{% url 'article_detail' article.id %}" class="btn btn-primary btn-sm">📖 Manage</a>
                 </tr>
             {% empty %}
                 <tr>
